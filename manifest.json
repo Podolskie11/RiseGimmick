@@ -1,0 +1,27 @@
+{
+  "name": "RISE 2026 Gateway",
+  "short_name": "RISE26",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#060108",
+  "theme_color": "#c8003e",
+  "description": "RISE 2026 Participant Gateway Terminal",
+  "icons": [
+    {
+      "src": "Prof-Rabiah-Suit-283x300.jpg",
+      "sizes": "283x300",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "Prof-Rabiah-Suit-283x300.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "Prof-Rabiah-Suit-283x300.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}

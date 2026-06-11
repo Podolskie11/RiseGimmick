@@ -587,6 +587,8 @@
         playPurgeSound();
         runResetLoadingScreen(() => {
             addLog('[SYS] Ready for next scan.', 'text-cyan');
+            // Redirect to a specific link after completion
+            window.location.href = "https://your-link-here.com"; 
         });
 
         // Hide the card and reset scanner behind the loading screen
@@ -647,6 +649,17 @@
 
         // Start loading screen
         runLoadingScreen();
+    }
+
+    // Service Worker Registration for PWA
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js').then(registration => {
+                console.log('SW registered: ', registration);
+            }).catch(registrationError => {
+                console.log('SW registration failed: ', registrationError);
+            });
+        });
     }
 
     // Go!
