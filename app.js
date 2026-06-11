@@ -651,6 +651,45 @@
         runLoadingScreen();
     }
 
+    // ══════════════════════════════════════════════════════════════════════
+    //  10. PWA INSTALLATION LOGIC
+    // ══════════════════════════════════════════════════════════════════════
+
+    let deferredPrompt;
+    const btnInstall = document.getElementById('btn-install');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome from automatically showing the prompt
+        e.preventDefault();
+        // Stash the event so it can be triggered later
+        deferredPrompt = e;
+        
+        // Show the install button
+        if (btnInstall) {
+            btnInstall.style.display = 'inline-block';
+        }
+    });
+
+    if (btnInstall) {
+        btnInstall.addEventListener('click', (e) => {
+            if (!deferredPrompt) return;
+            
+            // Show the install prompt
+            deferredPrompt.prompt();
+            
+            // Wait for the user to respond to the prompt
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    addLog('[SYS] Terminal installation accepted.', 'text-green');
+                } else {
+                    addLog('[WARN] Terminal installation dismissed.', 'text-pink');
+                }
+                deferredPrompt = null;
+                btnInstall.style.display = 'none';
+            });
+        });
+    }
+
     // Service Worker Registration for PWA
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
