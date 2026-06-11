@@ -1,10 +1,11 @@
-const CACHE_NAME = 'rise26-pwa-cache-v1';
+const CACHE_NAME = 'rise26-pwa-cache-v2';
 const urlsToCache = [
   './',
   './index.html',
   './style.css',
   './app.js',
-  './icon-512.png'
+  './icon-512.png',
+  './icon-192.png'
 ];
 
 self.addEventListener('install', event => {
@@ -13,6 +14,20 @@ self.addEventListener('install', event => {
       .then(cache => {
         return cache.addAll(urlsToCache);
       })
+  );
+});
+
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
   );
 });
 
