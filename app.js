@@ -587,8 +587,6 @@
         playPurgeSound();
         runResetLoadingScreen(() => {
             addLog('[SYS] Ready for next scan.', 'text-cyan');
-            // Redirect to a specific link after completion
-            window.location.href = "https://your-link-here.com"; 
         });
 
         // Hide the card and reset scanner behind the loading screen
