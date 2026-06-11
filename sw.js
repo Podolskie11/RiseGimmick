@@ -1,4 +1,4 @@
-const CACHE_NAME = 'rise26-pwa-cache-v3';
+const CACHE_NAME = 'rise26-pwa-cache-v4';
 const urlsToCache = [
   'index.html',
   'style.css',

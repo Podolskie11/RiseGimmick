@@ -1136,7 +1136,7 @@ body {
    ========================================================================== */
 
 @media (max-width: 1024px) {
-    body { overflow-y: auto; }
+    body { overflow-y: auto; height: auto; min-height: 100vh; }
     .hud-container { height: auto; min-height: 100vh; }
     .hud-main {
         grid-template-columns: 1fr;
