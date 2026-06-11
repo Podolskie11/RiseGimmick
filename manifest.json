@@ -1,7 +1,9 @@
 {
   "name": "RISE 2026 Gateway",
   "short_name": "RISE26",
-  "start_url": "./",
+  "id": ".",
+  "start_url": ".",
+  "scope": ".",
   "display": "fullscreen",
   "background_color": "#060108",
   "theme_color": "#c8003e",

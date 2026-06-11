@@ -1,11 +1,10 @@
-const CACHE_NAME = 'rise26-pwa-cache-v2';
+const CACHE_NAME = 'rise26-pwa-cache-v3';
 const urlsToCache = [
-  './',
-  './index.html',
-  './style.css',
-  './app.js',
-  './icon-512.png',
-  './icon-192.png'
+  'index.html',
+  'style.css',
+  'app.js',
+  'icon-512.png',
+  'icon-192.png'
 ];
 
 self.addEventListener('install', event => {
